@@ -1,0 +1,146 @@
+\hypertarget{solve__square_8cpp}{}\doxysection{solve\+\_\+square.\+cpp File Reference}
+\label{solve__square_8cpp}\index{solve\_square.cpp@{solve\_square.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{solve__square_8cpp_a05f70215c7fcdae114d4d56e9df0f6e7}{Solve\+Square}} (float a, float b, float c, float $\ast$x1\+\_\+p, float $\ast$x2\+\_\+p)
+\item 
+int \mbox{\hyperlink{solve__square_8cpp_a8e6250cc3348b800763d4d4a1799de53}{Solve\+Lineare}} (float a, float b, float $\ast$x\+\_\+p)
+\item 
+int \mbox{\hyperlink{solve__square_8cpp_ac4ae8fd3309dea95531c442e1959f2f9}{Is\+Equal}} (float a, float b=0)
+\item 
+int \mbox{\hyperlink{solve__square_8cpp_aa9d0e99482e634844aac949af0da3a0c}{Scan\+Coefficient}} (char $\ast$name, float $\ast$addr)
+\item 
+int \mbox{\hyperlink{solve__square_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}{S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS}} = -\/1
+\begin{DoxyCompactList}\small\item\em S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS -\/ value returned by \mbox{\hyperlink{solve__square_8cpp_a05f70215c7fcdae114d4d56e9df0f6e7}{Solve\+Square()}} if root is any number. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{solve__square_8cpp_a64ee060c25ecd42e328f450de36c24b5}{I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON}} = 1e-\/6f
+\begin{DoxyCompactList}\small\item\em I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON -\/ pressision of float comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{solve__square_8cpp_ac4ae8fd3309dea95531c442e1959f2f9}\label{solve__square_8cpp_ac4ae8fd3309dea95531c442e1959f2f9}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily int Is\+Equal (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Is\+Equal \begin{DoxyNote}{Note}
+compare to floats 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first float \\
+\hline
+{\em b} & second float \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if a != b ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve__square_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{solve__square_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!main@{main}}
+\index{main@{main}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solve__square_8cpp_aa9d0e99482e634844aac949af0da3a0c}\label{solve__square_8cpp_aa9d0e99482e634844aac949af0da3a0c}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!ScanCoefficient@{ScanCoefficient}}
+\index{ScanCoefficient@{ScanCoefficient}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{ScanCoefficient()}{ScanCoefficient()}}
+{\footnotesize\ttfamily int Scan\+Coefficient (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{float $\ast$}]{addr }\end{DoxyParamCaption})}
+
+Scan\+Coefficient \begin{DoxyNote}{Note}
+function to read coefficients from stdin, if input isn\`{}t a number returns error 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of coefficient \\
+\hline
+{\em addr} & addres to write coefficient value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if no error occurs ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve__square_8cpp_a8e6250cc3348b800763d4d4a1799de53}\label{solve__square_8cpp_a8e6250cc3348b800763d4d4a1799de53}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!SolveLineare@{SolveLineare}}
+\index{SolveLineare@{SolveLineare}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveLineare()}{SolveLineare()}}
+{\footnotesize\ttfamily int Solve\+Lineare (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float $\ast$}]{x\+\_\+p }\end{DoxyParamCaption})}
+
+Solve\+Lineare \begin{DoxyNote}{Note}
+function to solve lineare eqation 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & x coefficient \\
+\hline
+{\em b} & constant \\
+\hline
+{\em x\+\_\+p} & adress of root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve__square_8cpp_a05f70215c7fcdae114d4d56e9df0f6e7}\label{solve__square_8cpp_a05f70215c7fcdae114d4d56e9df0f6e7}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!SolveSquare@{SolveSquare}}
+\index{SolveSquare@{SolveSquare}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveSquare()}{SolveSquare()}}
+{\footnotesize\ttfamily int Solve\+Square (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c,  }\item[{float $\ast$}]{x1\+\_\+p,  }\item[{float $\ast$}]{x2\+\_\+p }\end{DoxyParamCaption})}
+
+Solve\+Square \begin{DoxyNote}{Note}
+function to solve square eqation 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & x$^\wedge$2 coefficient \\
+\hline
+{\em b} & x coefficient \\
+\hline
+{\em c} & constant \\
+\hline
+{\em x1\+\_\+p} & addres of 1-\/st root \\
+\hline
+{\em x2\+\_\+p} & addres of 2-\/nd root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots ~\newline
+ 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{solve__square_8cpp_a64ee060c25ecd42e328f450de36c24b5}\label{solve__square_8cpp_a64ee060c25ecd42e328f450de36c24b5}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!IE\_PRESSISION@{IE\_PRESSISION}}
+\index{IE\_PRESSISION@{IE\_PRESSISION}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{IE\_PRESSISION}{IE\_PRESSISION}}
+{\footnotesize\ttfamily const float I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON = 1e-\/6f}
+
+
+
+I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON -\/ pressision of float comparison. 
+
+\mbox{\Hypertarget{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}\label{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!SS\_INF\_NROOTS@{SS\_INF\_NROOTS}}
+\index{SS\_INF\_NROOTS@{SS\_INF\_NROOTS}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{SS\_INF\_NROOTS}{SS\_INF\_NROOTS}}
+{\footnotesize\ttfamily const int S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS = -\/1}
+
+
+
+S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS -\/ value returned by \mbox{\hyperlink{solve__square_8cpp_a05f70215c7fcdae114d4d56e9df0f6e7}{Solve\+Square()}} if root is any number. 
+

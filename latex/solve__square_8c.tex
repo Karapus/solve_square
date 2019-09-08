@@ -1,0 +1,106 @@
+\hypertarget{solve__square_8c}{}\doxysection{solve\+\_\+square.\+c File Reference}
+\label{solve__square_8c}\index{solve\_square.c@{solve\_square.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{solve__square_8c_a226e645881967a101aad10f3ab808386}{S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS}}~-\/1
+\begin{DoxyCompactList}\small\item\em S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS -\/ value returned by \mbox{\hyperlink{solve__square_8c_a45fb69724becc65c6ac9f9023d512c9c}{Solve\+Square()}} if root is any number. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{solve__square_8c_adeb6ce7d69ab424f6716662de62d1c96}{I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON}}~0.\+00001
+\begin{DoxyCompactList}\small\item\em I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON -\/ pressision of float comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{solve__square_8c_a45fb69724becc65c6ac9f9023d512c9c}{Solve\+Square}} (float a, float b, float c, float $\ast$x1, float $\ast$x2)
+\item 
+int \mbox{\hyperlink{solve__square_8c_a17c76ccc44ce7b16549b03143de72a5d}{Is\+Equal}} (float a, float b)
+\item 
+void \mbox{\hyperlink{solve__square_8c_a921cc76a00d144fef869d2c6366f906b}{Scan\+Coeficient}} (char $\ast$name, float $\ast$addr)
+\item 
+int \mbox{\hyperlink{solve__square_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{solve__square_8c_adeb6ce7d69ab424f6716662de62d1c96}\label{solve__square_8c_adeb6ce7d69ab424f6716662de62d1c96}} 
+\index{solve\_square.c@{solve\_square.c}!IE\_PRESSISION@{IE\_PRESSISION}}
+\index{IE\_PRESSISION@{IE\_PRESSISION}!solve\_square.c@{solve\_square.c}}
+\doxysubsubsection{\texorpdfstring{IE\_PRESSISION}{IE\_PRESSISION}}
+{\footnotesize\ttfamily \#define I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON~0.\+00001}
+
+
+
+I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON -\/ pressision of float comparison. 
+
+\mbox{\Hypertarget{solve__square_8c_a226e645881967a101aad10f3ab808386}\label{solve__square_8c_a226e645881967a101aad10f3ab808386}} 
+\index{solve\_square.c@{solve\_square.c}!SS\_INF\_NROOTS@{SS\_INF\_NROOTS}}
+\index{SS\_INF\_NROOTS@{SS\_INF\_NROOTS}!solve\_square.c@{solve\_square.c}}
+\doxysubsubsection{\texorpdfstring{SS\_INF\_NROOTS}{SS\_INF\_NROOTS}}
+{\footnotesize\ttfamily \#define S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS~-\/1}
+
+
+
+S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS -\/ value returned by \mbox{\hyperlink{solve__square_8c_a45fb69724becc65c6ac9f9023d512c9c}{Solve\+Square()}} if root is any number. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{solve__square_8c_a17c76ccc44ce7b16549b03143de72a5d}\label{solve__square_8c_a17c76ccc44ce7b16549b03143de72a5d}} 
+\index{solve\_square.c@{solve\_square.c}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!solve\_square.c@{solve\_square.c}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily int Is\+Equal (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b }\end{DoxyParamCaption})}
+
+Is\+Equal \begin{DoxyNote}{Note}
+compare to floats 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first float \\
+\hline
+{\em b} & second float \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if a != b 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve__square_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{solve__square_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{solve\_square.c@{solve\_square.c}!main@{main}}
+\index{main@{main}!solve\_square.c@{solve\_square.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solve__square_8c_a921cc76a00d144fef869d2c6366f906b}\label{solve__square_8c_a921cc76a00d144fef869d2c6366f906b}} 
+\index{solve\_square.c@{solve\_square.c}!ScanCoeficient@{ScanCoeficient}}
+\index{ScanCoeficient@{ScanCoeficient}!solve\_square.c@{solve\_square.c}}
+\doxysubsubsection{\texorpdfstring{ScanCoeficient()}{ScanCoeficient()}}
+{\footnotesize\ttfamily void Scan\+Coeficient (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{float $\ast$}]{addr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solve__square_8c_a45fb69724becc65c6ac9f9023d512c9c}\label{solve__square_8c_a45fb69724becc65c6ac9f9023d512c9c}} 
+\index{solve\_square.c@{solve\_square.c}!SolveSquare@{SolveSquare}}
+\index{SolveSquare@{SolveSquare}!solve\_square.c@{solve\_square.c}}
+\doxysubsubsection{\texorpdfstring{SolveSquare()}{SolveSquare()}}
+{\footnotesize\ttfamily int Solve\+Square (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c,  }\item[{float $\ast$}]{x1,  }\item[{float $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+Solve\+Square \begin{DoxyNote}{Note}
+function to solve square eqation 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & x$^\wedge$2 coefficient \\
+\hline
+{\em b} & x coefficient \\
+\hline
+{\em c} & constant \\
+\hline
+{\em x1} & addres of 1-\/st root \\
+\hline
+{\em x2} & addres of 2-\/nd root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots 
+\end{DoxyReturn}
