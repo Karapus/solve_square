@@ -21,7 +21,7 @@ int main()
 	float a = NAN, b = NAN, c = NAN;
 	
 	int errn = 0;
-	if(	(errn = ScanCoefficient("x^2",		&a)) ||
+	if (	(errn = ScanCoefficient("x^2",		&a)) ||
 		(errn = ScanCoefficient("x",		&b)) || 
 		(errn = ScanCoefficient("constant",	&c)) )
 		return errn;
@@ -29,16 +29,16 @@ int main()
 	float x1 = NAN, x2 = NAN;
 	
 	int nRoots = SolveSquare(a, b, c, &x1, &x2);
-	switch(nRoots)
+	switch (nRoots)
 	{
 		case 0:
 			printf("No roots\n");
 			break;
 		case 1:
-			printf("Root of %gx^2 + %gx + %g == 0  is:\n %g\n", a, b, c, x1);
+			printf("Root  of %gx^2 + %gx + %g == 0 is:\n %g\n", a, b, c, x1);
 			break;
 		case 2:
-			printf("Roots of %gx^2 + %gx + %g == 0  are:\n %g %g\n", a, b, c, x1, x2);
+			printf("Roots of %gx^2 + %gx + %g == 0 are:\n %g %g\n", a, b, c, x1, x2);
 			break;
 		case SS_INF_NROOTS:
 			printf("Any number is a root of %gx^2 + %gx + %g == 0\n", a, b, c);
@@ -85,24 +85,24 @@ int SolveSquare(float a, float b, float c, float *x1_p, float *x2_p)
 	assert(x2_p != NULL);
 	assert(x1_p != x2_p);
 	
-	if(IsEqual(a, 0))		/*solve linear equation*/
+	if (IsEqual(a, 0))		/*solve linear equation*/
 	{
 		return SolveLineare(b, c, x1_p);
 	}
 
-	if(IsEqual(c, 0))
+	if (IsEqual(c, 0))
 	{
 		*x1_p = 0;
 		return SolveLineare(a, b, x2_p);
 	}
 
 	float d = b*b - 4*a*c;		/*solve sqare equation*/
-	if(IsEqual(d, 0))
+	if (IsEqual(d, 0))
 	{
 		*x1_p = -b / (2 * a);
 		return 1;
 	}
-	if(d < 0) return 0;
+	if (d < 0) return 0;
 	*x1_p = (- b + sqrt(d)) / (2 * a);
 	*x2_p = (- b / a) - *x1_p;
 	return 2;
@@ -121,7 +121,7 @@ int SolveLineare(float a, float b, float *x_p)
 	assert(isfinite(a));
 	assert(x_p != NULL);
 
-	if(IsEqual(a, 0)) return IsEqual(b, 0) ? SS_INF_NROOTS : 0;
+	if (IsEqual(a, 0)) return IsEqual(b, 0) ? SS_INF_NROOTS : 0;
 	*x_p = -b / a;
 	return 1;
 }
