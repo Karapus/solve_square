@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solve_5fsquare_2ecpp_8',['solve_square.cpp',['../solve__square_8cpp.html',1,'']]]
+  ['input_2ec_13',['input.c',['../input_8c.html',1,'']]]
 ];

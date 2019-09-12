@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio_ext.h>
+#include <ctype.h>
 
 //! SS_INF_NROOTS - value returned by SolveSquare() if root is any number 
 const int SS_INF_NROOTS = -1;
@@ -13,7 +14,6 @@ const double IE_PRESSISION = 1e-6;
 int SolveSquare(double a, double b, double c, double *x1_p, double *x2_p);
 int SolveLineare(double a, double b, double *x_p);
 int IsEqual(double a, double b = 0);
-int ScanCoefficient(const char *name, double *addr);
 double *GetNewInput(const char *prompt, size_t NELEMS);
 int ScanElem(double *f);
 
@@ -21,13 +21,6 @@ int main()
 {
 	printf("Solve sqare equation\n");
 	
-/*	double a = NAN, b = NAN, c = NAN;
-	
-	int errn = 0;
-	if (	(errn = ScanCoefficient("x^2",		&a)) ||
-		(errn = ScanCoefficient("x",		&b)) || 
-		(errn = ScanCoefficient("constant",	&c)) )
-		return errn;*/
 	double *coeffs = GetNewInput("Input x^2, x and constant coefficients", 3);
 
 	double x1 = NAN, x2 = NAN;
@@ -52,23 +45,6 @@ int main()
 			return 2;
 	}
 	free(coeffs);
-	return 0;
-}
-
-/*! ScanCoefficient
-	@note function to read coefficients from stdin, if input isn`t a number returns error
-	@param name name of coefficient
-	@param addr addres to write coefficient value
-	@return 0 if no error occurs		*/
-
-int ScanCoefficient(const char *name, double *addr)
-{
-        printf("Enter %s coefficient of equation:\n", name);
-        if (!scanf("%lg", addr))
-        {
-                fprintf(stderr, "Error in ScanCoefficient(): Invalid coeficient %s\n", name);
-                return 1;
-        }
 	return 0;
 }
 
@@ -107,10 +83,8 @@ int ScanElem(double *f)
         const unsigned NTRIES = 10;	/*!maximum number of attempts to read f*/
         for (unsigned i = 0; i < NTRIES; i++)
         {
-                //printf("tryn %d\n", i);
-                if (scanf("%lg", f))
+                if (scanf("%lg[\n\t ]", f) && isspace(getchar()))
                 {
-                        //puts("Ok");
                         return 0;
                 }
                 //fflush(stdin);
