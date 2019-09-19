@@ -73,6 +73,7 @@ $(function() {
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdio_ext.h&gt;</code><br />
+<code>#include &lt;ctype.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -80,12 +81,10 @@ Functions</h2></td></tr>
 <tr class="separator:ab936a40c3bd1cb2912df07f610d35eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3f9da76b6aacbff8bcc8c8ea3adf862"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#ac3f9da76b6aacbff8bcc8c8ea3adf862">SolveLineare</a> (double a, double b, double *x_p)</td></tr>
 <tr class="separator:ac3f9da76b6aacbff8bcc8c8ea3adf862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347f377248b65a32f0915712728edcb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a347f377248b65a32f0915712728edcb6">IsEqual</a> (double a, double b=0)</td></tr>
-<tr class="separator:a347f377248b65a32f0915712728edcb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3abf54fbebdf349eb31c1cb57b0c5226"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a3abf54fbebdf349eb31c1cb57b0c5226">ScanCoefficient</a> (const char *name, double *addr)</td></tr>
-<tr class="separator:a3abf54fbebdf349eb31c1cb57b0c5226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9db2612e43a68f037247a65c09e4d247"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a9db2612e43a68f037247a65c09e4d247">GetNewInput</a> (const char *prompt, size_t NELEMS)</td></tr>
-<tr class="separator:a9db2612e43a68f037247a65c09e4d247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a067661247eb5deeece8db76cf47b8284"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a067661247eb5deeece8db76cf47b8284">IsEqual</a> (double a, double b=0.0)</td></tr>
+<tr class="separator:a067661247eb5deeece8db76cf47b8284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43407a424b50d5b14bc28387ff3015d4"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a43407a424b50d5b14bc28387ff3015d4">GetNewInput</a> (const char *prompt, size_t NELEMS)</td></tr>
+<tr class="separator:a43407a424b50d5b14bc28387ff3015d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abed10ec6dc10518cf74ddc16cf5d1e80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#abed10ec6dc10518cf74ddc16cf5d1e80">ScanElem</a> (double *f)</td></tr>
 <tr class="separator:abed10ec6dc10518cf74ddc16cf5d1e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
@@ -96,19 +95,19 @@ Variables</h2></td></tr>
 <tr class="memitem:a6cbe918eff22ee462657bb9e47ea20f9"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a6cbe918eff22ee462657bb9e47ea20f9">SS_INF_NROOTS</a> = -1</td></tr>
 <tr class="memdesc:a6cbe918eff22ee462657bb9e47ea20f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">SS_INF_NROOTS - value returned by <a class="el" href="solve__square_8cpp.html#ab936a40c3bd1cb2912df07f610d35eed">SolveSquare()</a> if root is any number.  <a href="solve__square_8cpp.html#a6cbe918eff22ee462657bb9e47ea20f9">More...</a><br /></td></tr>
 <tr class="separator:a6cbe918eff22ee462657bb9e47ea20f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e0cf61e65a1f9d00bb760666dbcc341"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#a5e0cf61e65a1f9d00bb760666dbcc341">IE_PRESSISION</a> = 1e-6</td></tr>
-<tr class="memdesc:a5e0cf61e65a1f9d00bb760666dbcc341"><td class="mdescLeft">&#160;</td><td class="mdescRight">IE_PRESSISION - pressision of double comparison.  <a href="solve__square_8cpp.html#a5e0cf61e65a1f9d00bb760666dbcc341">More...</a><br /></td></tr>
-<tr class="separator:a5e0cf61e65a1f9d00bb760666dbcc341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ac0edea88fe8c592f4ca7d67d4eee3"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solve__square_8cpp.html#ad3ac0edea88fe8c592f4ca7d67d4eee3">D_TOLERANCE</a> = 1e-10</td></tr>
+<tr class="memdesc:ad3ac0edea88fe8c592f4ca7d67d4eee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">D_TOLERANCE - pressision of double comparison.  <a href="solve__square_8cpp.html#ad3ac0edea88fe8c592f4ca7d67d4eee3">More...</a><br /></td></tr>
+<tr class="separator:ad3ac0edea88fe8c592f4ca7d67d4eee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9db2612e43a68f037247a65c09e4d247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9db2612e43a68f037247a65c09e4d247">&#9670;&nbsp;</a></span>GetNewInput()</h2>
+<a id="a43407a424b50d5b14bc28387ff3015d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43407a424b50d5b14bc28387ff3015d4">&#9670;&nbsp;</a></span>GetNewInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double* GetNewInput </td>
+          <td class="memname">double * GetNewInput </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>prompt</em>, </td>
@@ -139,8 +138,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a347f377248b65a32f0915712728edcb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a347f377248b65a32f0915712728edcb6">&#9670;&nbsp;</a></span>IsEqual()</h2>
+<a id="a067661247eb5deeece8db76cf47b8284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a067661247eb5deeece8db76cf47b8284">&#9670;&nbsp;</a></span>IsEqual()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +154,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>b</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>b</em> = <code>0.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,44 +190,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3abf54fbebdf349eb31c1cb57b0c5226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3abf54fbebdf349eb31c1cb57b0c5226">&#9670;&nbsp;</a></span>ScanCoefficient()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ScanCoefficient </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>addr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>ScanCoefficient </p><dl class="section note"><dt>Note</dt><dd>function to read coefficients from stdin, if input isn`t a number returns error </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>name of coefficient </td></tr>
-    <tr><td class="paramname">addr</td><td>addres to write coefficient value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 if no error occurs <br  />
- </dd></dl>
 
 </div>
 </div>
@@ -365,19 +326,19 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a5e0cf61e65a1f9d00bb760666dbcc341"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e0cf61e65a1f9d00bb760666dbcc341">&#9670;&nbsp;</a></span>IE_PRESSISION</h2>
+<a id="ad3ac0edea88fe8c592f4ca7d67d4eee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3ac0edea88fe8c592f4ca7d67d4eee3">&#9670;&nbsp;</a></span>D_TOLERANCE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const double IE_PRESSISION = 1e-6</td>
+          <td class="memname">const double D_TOLERANCE = 1e-10</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>IE_PRESSISION - pressision of double comparison. </p>
+<p>D_TOLERANCE - pressision of double comparison. </p>
 
 </div>
 </div>

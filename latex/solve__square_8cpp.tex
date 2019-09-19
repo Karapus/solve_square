@@ -5,6 +5,7 @@
 {\ttfamily \#include $<$assert.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$stdio\+\_\+ext.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -12,11 +13,9 @@ int \mbox{\hyperlink{solve__square_8cpp_ab936a40c3bd1cb2912df07f610d35eed}{Solve
 \item 
 int \mbox{\hyperlink{solve__square_8cpp_ac3f9da76b6aacbff8bcc8c8ea3adf862}{Solve\+Lineare}} (double a, double b, double $\ast$x\+\_\+p)
 \item 
-int \mbox{\hyperlink{solve__square_8cpp_a347f377248b65a32f0915712728edcb6}{Is\+Equal}} (double a, double b=0)
+int \mbox{\hyperlink{solve__square_8cpp_a067661247eb5deeece8db76cf47b8284}{Is\+Equal}} (double a, double b=0.\+0)
 \item 
-int \mbox{\hyperlink{solve__square_8cpp_a3abf54fbebdf349eb31c1cb57b0c5226}{Scan\+Coefficient}} (const char $\ast$name, double $\ast$addr)
-\item 
-double $\ast$ \mbox{\hyperlink{solve__square_8cpp_a9db2612e43a68f037247a65c09e4d247}{Get\+New\+Input}} (const char $\ast$prompt, size\+\_\+t N\+E\+L\+E\+MS)
+double $\ast$ \mbox{\hyperlink{solve__square_8cpp_a43407a424b50d5b14bc28387ff3015d4}{Get\+New\+Input}} (const char $\ast$prompt, size\+\_\+t N\+E\+L\+E\+MS)
 \item 
 int \mbox{\hyperlink{solve__square_8cpp_abed10ec6dc10518cf74ddc16cf5d1e80}{Scan\+Elem}} (double $\ast$f)
 \item 
@@ -27,16 +26,16 @@ int \mbox{\hyperlink{solve__square_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}
 \item 
 const int \mbox{\hyperlink{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}{S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS}} = -\/1
 \begin{DoxyCompactList}\small\item\em S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS -\/ value returned by \mbox{\hyperlink{solve__square_8cpp_ab936a40c3bd1cb2912df07f610d35eed}{Solve\+Square()}} if root is any number. \end{DoxyCompactList}\item 
-const double \mbox{\hyperlink{solve__square_8cpp_a5e0cf61e65a1f9d00bb760666dbcc341}{I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON}} = 1e-\/6
-\begin{DoxyCompactList}\small\item\em I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON -\/ pressision of double comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
+const double \mbox{\hyperlink{solve__square_8cpp_ad3ac0edea88fe8c592f4ca7d67d4eee3}{D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}} = 1e-\/10
+\begin{DoxyCompactList}\small\item\em D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE -\/ pressision of double comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{solve__square_8cpp_a9db2612e43a68f037247a65c09e4d247}\label{solve__square_8cpp_a9db2612e43a68f037247a65c09e4d247}} 
+\mbox{\Hypertarget{solve__square_8cpp_a43407a424b50d5b14bc28387ff3015d4}\label{solve__square_8cpp_a43407a424b50d5b14bc28387ff3015d4}} 
 \index{solve\_square.cpp@{solve\_square.cpp}!GetNewInput@{GetNewInput}}
 \index{GetNewInput@{GetNewInput}!solve\_square.cpp@{solve\_square.cpp}}
 \doxysubsubsection{\texorpdfstring{GetNewInput()}{GetNewInput()}}
-{\footnotesize\ttfamily double$\ast$ Get\+New\+Input (\begin{DoxyParamCaption}\item[{const char $\ast$}]{prompt,  }\item[{const size\+\_\+t}]{N\+E\+L\+E\+MS }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double $\ast$ Get\+New\+Input (\begin{DoxyParamCaption}\item[{const char $\ast$}]{prompt,  }\item[{const size\+\_\+t}]{N\+E\+L\+E\+MS }\end{DoxyParamCaption})}
 
 Get\+New\+Input \begin{DoxyNote}{Note}
 function to read N\+E\+L\+E\+MS doubles from stdin 
@@ -52,11 +51,11 @@ function to read N\+E\+L\+E\+MS doubles from stdin
 array of N\+E\+L\+E\+MS doubles ~\newline
  
 \end{DoxyReturn}
-\mbox{\Hypertarget{solve__square_8cpp_a347f377248b65a32f0915712728edcb6}\label{solve__square_8cpp_a347f377248b65a32f0915712728edcb6}} 
+\mbox{\Hypertarget{solve__square_8cpp_a067661247eb5deeece8db76cf47b8284}\label{solve__square_8cpp_a067661247eb5deeece8db76cf47b8284}} 
 \index{solve\_square.cpp@{solve\_square.cpp}!IsEqual@{IsEqual}}
 \index{IsEqual@{IsEqual}!solve\_square.cpp@{solve\_square.cpp}}
 \doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
-{\footnotesize\ttfamily int Is\+Equal (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b = {\ttfamily 0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Is\+Equal (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b = {\ttfamily 0.0} }\end{DoxyParamCaption})}
 
 Is\+Equal \begin{DoxyNote}{Note}
 compare to doubles 
@@ -78,26 +77,6 @@ compare to doubles
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{solve__square_8cpp_a3abf54fbebdf349eb31c1cb57b0c5226}\label{solve__square_8cpp_a3abf54fbebdf349eb31c1cb57b0c5226}} 
-\index{solve\_square.cpp@{solve\_square.cpp}!ScanCoefficient@{ScanCoefficient}}
-\index{ScanCoefficient@{ScanCoefficient}!solve\_square.cpp@{solve\_square.cpp}}
-\doxysubsubsection{\texorpdfstring{ScanCoefficient()}{ScanCoefficient()}}
-{\footnotesize\ttfamily int Scan\+Coefficient (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{double $\ast$}]{addr }\end{DoxyParamCaption})}
-
-Scan\+Coefficient \begin{DoxyNote}{Note}
-function to read coefficients from stdin, if input isn\`{}t a number returns error 
-\end{DoxyNote}
-
-\begin{DoxyParams}{Parameters}
-{\em name} & name of coefficient \\
-\hline
-{\em addr} & addres to write coefficient value \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 if no error occurs ~\newline
- 
-\end{DoxyReturn}
 \mbox{\Hypertarget{solve__square_8cpp_abed10ec6dc10518cf74ddc16cf5d1e80}\label{solve__square_8cpp_abed10ec6dc10518cf74ddc16cf5d1e80}} 
 \index{solve\_square.cpp@{solve\_square.cpp}!ScanElem@{ScanElem}}
 \index{ScanElem@{ScanElem}!solve\_square.cpp@{solve\_square.cpp}}
@@ -167,15 +146,15 @@ number of roots ~\newline
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{solve__square_8cpp_a5e0cf61e65a1f9d00bb760666dbcc341}\label{solve__square_8cpp_a5e0cf61e65a1f9d00bb760666dbcc341}} 
-\index{solve\_square.cpp@{solve\_square.cpp}!IE\_PRESSISION@{IE\_PRESSISION}}
-\index{IE\_PRESSISION@{IE\_PRESSISION}!solve\_square.cpp@{solve\_square.cpp}}
-\doxysubsubsection{\texorpdfstring{IE\_PRESSISION}{IE\_PRESSISION}}
-{\footnotesize\ttfamily const double I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON = 1e-\/6}
+\mbox{\Hypertarget{solve__square_8cpp_ad3ac0edea88fe8c592f4ca7d67d4eee3}\label{solve__square_8cpp_ad3ac0edea88fe8c592f4ca7d67d4eee3}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!D\_TOLERANCE@{D\_TOLERANCE}}
+\index{D\_TOLERANCE@{D\_TOLERANCE}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{D\_TOLERANCE}{D\_TOLERANCE}}
+{\footnotesize\ttfamily const double D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE = 1e-\/10}
 
 
 
-I\+E\+\_\+\+P\+R\+E\+S\+S\+I\+S\+I\+ON -\/ pressision of double comparison. 
+D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE -\/ pressision of double comparison. 
 
 \mbox{\Hypertarget{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}\label{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}} 
 \index{solve\_square.cpp@{solve\_square.cpp}!SS\_INF\_NROOTS@{SS\_INF\_NROOTS}}

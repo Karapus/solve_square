@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ie_5fpressision_23',['IE_PRESSISION',['../solve__square_8cpp.html#a5e0cf61e65a1f9d00bb760666dbcc341',1,'solve_square.cpp']]]
+  ['d_5ftolerance_19',['D_TOLERANCE',['../solve__square_8cpp.html#ad3ac0edea88fe8c592f4ca7d67d4eee3',1,'solve_square.cpp']]]
 ];

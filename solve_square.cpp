@@ -8,12 +8,12 @@
 //! SS_INF_NROOTS - value returned by SolveSquare() if root is any number 
 const int SS_INF_NROOTS = -1;
 
-//! IE_PRESSISION - pressision of double comparison
-const double IE_PRESSISION = 1e-6;
+//! D_TOLERANCE - pressision of double comparison
+const double D_TOLERANCE = 1e-10;
 
 int SolveSquare(double a, double b, double c, double *x1_p, double *x2_p);
 int SolveLineare(double a, double b, double *x_p);
-int IsEqual(double a, double b = 0);
+int IsEqual(double a, double b = 0.0);
 double *GetNewInput(const char *prompt, size_t NELEMS);
 int ScanElem(double *f);
 
@@ -22,6 +22,7 @@ int main()
 	printf("Solve sqare equation\n");
 	
 	double *coeffs = GetNewInput("Input x^2, x and constant coefficients", 3);
+	assert(coeffs != nullptr);
 
 	double x1 = NAN, x2 = NAN;
 	
@@ -56,8 +57,11 @@ int main()
 
 double *GetNewInput(const char *prompt, const size_t NELEMS)
 {
+	assert(prompt != nullptr);
 	puts(prompt);
+
         double *data = (double *) calloc(NELEMS, sizeof(*data));
+	assert(data != nullptr);
 
         size_t i = 0;
         while (i < NELEMS)
@@ -80,10 +84,12 @@ double *GetNewInput(const char *prompt, const size_t NELEMS)
 
 int ScanElem(double *f)
 {
+	assert(f != nullptr);
+
         const unsigned NTRIES = 10;	/*!maximum number of attempts to read f*/
         for (unsigned i = 0; i < NTRIES; i++)
         {
-                if (scanf("%lg[\n\t ]", f) && isspace(getchar()))
+                if (scanf("%lg", f) && isspace(getchar()))
                 {
                         return 0;
                 }
@@ -112,19 +118,20 @@ int SolveSquare(double a, double b, double c, double *x1_p, double *x2_p)
 	assert(x2_p != nullptr);
 	assert(x1_p != x2_p);
 	
-	if (IsEqual(a, 0))		/*solve linear equation*/
+	if (IsEqual(a))		/*solve linear equation*/
 	{
 		return SolveLineare(b, c, x1_p);
 	}
 
-	if (IsEqual(c, 0))
+	if (IsEqual(c))
 	{
 		*x1_p = 0;
-		return SolveLineare(a, b, x2_p);
+		int nRoots = SolveLineare(a, b, x2_p);
+		return (nRoots == -1) ? -1 : (nRoots + 1);
 	}
 
 	double d = b*b - 4*a*c;		/*solve sqare equation*/
-	if (IsEqual(d, 0))
+	if (IsEqual(d))
 	{
 		*x1_p = -b / (2 * a);
 		return 1;
@@ -148,7 +155,7 @@ int SolveLineare(double a, double b, double *x_p)
 	assert(isfinite(a));
 	assert(x_p != nullptr);
 
-	if (IsEqual(a, 0)) return IsEqual(b, 0) ? SS_INF_NROOTS : 0;
+	if (IsEqual(a)) return IsEqual(b) ? SS_INF_NROOTS : 0;
 	*x_p = -b / a;
 	return 1;
 }
@@ -161,5 +168,5 @@ int SolveLineare(double a, double b, double *x_p)
 
 int IsEqual(double a, double b)
 {
-        return fabs(a - b) < IE_PRESSISION;
+        return fabs(a - b) < D_TOLERANCE;
 }

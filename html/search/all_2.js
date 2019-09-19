@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_4',['main',['../input_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;input.c'],['../solve__square_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;solve_square.cpp']]]
+  ['isequal_2',['IsEqual',['../solve__square_8cpp.html#a067661247eb5deeece8db76cf47b8284',1,'solve_square.cpp']]]
 ];
