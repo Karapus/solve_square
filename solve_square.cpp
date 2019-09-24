@@ -9,23 +9,25 @@
 const int SS_INF_NROOTS = -1;
 
 //! D_TOLERANCE - pressision of double comparison
-const double D_TOLERANCE = 1e-10;
+double D_TOLERANCE = 2.75e-17;
 
 int SolveSquare(double a, double b, double c, double *x1_p, double *x2_p);
 int SolveLineare(double a, double b, double *x_p);
 int IsEqual(double a, double b = 0.0);
-double *GetNewInput(const char *prompt, size_t NELEMS);
+double *GetNewInput(const size_t NELEMS, const char *prompt = nullptr);
 int ScanElem(double *f);
 
 int main()
 {
 	printf("Solve sqare equation\n");
 	
-	double *coeffs = GetNewInput("Input x^2, x and constant coefficients", 3);
+	double *coeffs = GetNewInput(3, "Input x^2, x and constant coefficients");
 	assert(coeffs != nullptr);
 
 	double x1 = NAN, x2 = NAN;
 	
+	D_TOLERANCE *= 10 * ((coeffs[0] > coeffs[1]) ? ((coeffs[0] > coeffs[2]) ? log(coeffs[0]) : log(coeffs[2])) : ((coeffs[1] > coeffs[2]) ? log(coeffs[1]) : log(coeffs[2])));//max(log(coeffs[0]), log(coeffs[1]), log(c));
+
 	int nRoots = SolveSquare(coeffs[0], coeffs[1], coeffs[2], &x1, &x2);
 	switch (nRoots)
 	{
@@ -55,10 +57,9 @@ int main()
 	@param NELEMS number of doubles to read
 	@return array of NELEMS doubles		*/
 
-double *GetNewInput(const char *prompt, const size_t NELEMS)
+double *GetNewInput(const size_t NELEMS, const char *prompt)
 {
-	assert(prompt != nullptr);
-	puts(prompt);
+	if (prompt) puts(prompt);
 
         double *data = (double *) calloc(NELEMS, sizeof(*data));
 	assert(data != nullptr);
