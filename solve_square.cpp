@@ -16,9 +16,14 @@ int SolveLineare(double a, double b, double *x_p);
 int IsEqual(double a, double b = 0.0);
 double *GetNewInput(const size_t NELEMS, const char *prompt = nullptr);
 int ScanElem(double *f);
+static inline double dmax(double a, double b);
+void UnitTest(void);
+static inline int CmpTests(int res_t, double x1_t, double x2_t, int res, double x1, double x2);
 
 int main()
 {
+	UnitTest();
+
 	printf("Solve sqare equation\n");
 	
 	double *coeffs = GetNewInput(3, "Input x^2, x and constant coefficients");
@@ -26,7 +31,7 @@ int main()
 
 	double x1 = NAN, x2 = NAN;
 	
-	D_TOLERANCE *= 10 * ((coeffs[0] > coeffs[1]) ? ((coeffs[0] > coeffs[2]) ? log(coeffs[0]) : log(coeffs[2])) : ((coeffs[1] > coeffs[2]) ? log(coeffs[1]) : log(coeffs[2])));//max(log(coeffs[0]), log(coeffs[1]), log(c));
+	D_TOLERANCE *= 10;//* log10(dmax(coeffs[0], dmax(coeffs[1], coeffs[2])));
 
 	int nRoots = SolveSquare(coeffs[0], coeffs[1], coeffs[2], &x1, &x2);
 	switch (nRoots)
@@ -49,6 +54,53 @@ int main()
 	}
 	free(coeffs);
 	return 0;
+}
+
+void UnitTest(void)
+{
+	const int NTESTS = 5;
+	struct test
+	{
+		double a;
+		double b;
+		double c;
+		int res;
+		double x1;
+		double x2;
+	};
+	struct test tests_arr[NTESTS] =
+	{
+		{0, 0, 0, SS_INF_NROOTS, NAN, NAN},
+		{0, 0, 1, 0, NAN, NAN},
+		{0, 1, 0, 1, 0, NAN},
+		{2, 0, 1, 0, NAN, NAN},
+		{1, -5, 4, 2, 4, 1}
+	};
+
+	double x1 = NAN, x2 = NAN; 
+	for (int i = 0; i < NTESTS; i++)
+	{
+		x1 = x2 = NAN;
+		int res = SolveSquare(tests_arr[i].a, tests_arr[i].b, tests_arr[i].c, &x1, &x2);
+		if (!CmpTests(tests_arr[i].res, tests_arr[i].x1, tests_arr[i].x2, res, x1, x2))
+			printf("Unittest %d failed: should be res = %d; x1, x2 == %g, %g; but res == %d; x1, x2 == %g,%g\n",
+					i, tests_arr[i].res, tests_arr[i].x1, tests_arr[i].x2, res, x1, x2);
+	}
+	return;
+}
+
+static inline int CmpTests(int res_t, double x1_t, double x2_t, int res, double x1, double x2)
+{
+	return	(res_t == res) && (
+		(!isfinite(x1_t))						||
+		(IsEqual(x1_t, x1) && (!isfinite(x2_t) || IsEqual(x2_t, x2)))	|| 
+		(IsEqual(x1_t, x2) && (!isfinite(x2_t) || IsEqual(x2_t, x1)))
+		);
+}
+
+static inline double dmax(double a, double b)
+{
+	return (a > b) ? a : b;
 }
 
 /*! GetNewInput
@@ -118,7 +170,7 @@ int SolveSquare(double a, double b, double c, double *x1_p, double *x2_p)
 	assert(x1_p != nullptr);
 	assert(x2_p != nullptr);
 	assert(x1_p != x2_p);
-	
+
 	if (IsEqual(a))		/*solve linear equation*/
 	{
 		return SolveLineare(b, c, x1_p);
@@ -128,7 +180,7 @@ int SolveSquare(double a, double b, double c, double *x1_p, double *x2_p)
 	{
 		*x1_p = 0;
 		int nRoots = SolveLineare(a, b, x2_p);
-		return (nRoots == -1) ? -1 : (nRoots + 1);
+		return (nRoots == SS_INF_NROOTS) ? SS_INF_NROOTS : (nRoots + 1);
 	}
 
 	double d = b*b - 4*a*c;		/*solve sqare equation*/
