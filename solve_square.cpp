@@ -16,7 +16,7 @@ int SolveLineare(double a, double b, double *x_p);
 int IsEqual(double a, double b = 0.0);
 double *GetNewInput(const size_t NELEMS, const char *prompt = nullptr);
 int ScanElem(double *f);
-static inline double dmax(double a, double b);
+static inline double MaxD(double a, double b);
 void UnitTest(void);
 static inline int CmpTests(int res_t, double x1_t, double x2_t, int res, double x1, double x2);
 
@@ -31,7 +31,7 @@ int main()
 
 	double x1 = NAN, x2 = NAN;
 	
-	D_TOLERANCE *= 10;//* log10(dmax(coeffs[0], dmax(coeffs[1], coeffs[2])));
+	D_TOLERANCE *= 10;//* log10(MaxD(coeffs[0], MaxD(coeffs[1], coeffs[2])));
 
 	int nRoots = SolveSquare(coeffs[0], coeffs[1], coeffs[2], &x1, &x2);
 	switch (nRoots)
@@ -98,7 +98,13 @@ static inline int CmpTests(int res_t, double x1_t, double x2_t, int res, double 
 		);
 }
 
-static inline double dmax(double a, double b)
+/*!	MaxD
+ * 	@note returns maximum of two double arguments
+ * 	@param a first double to compare
+ * 	@param b second double to compare
+ * 	@return maximum of a and b		*/
+
+static inline double MaxD(double a, double b)
 {
 	return (a > b) ? a : b;
 }

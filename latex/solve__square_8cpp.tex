@@ -15,9 +15,11 @@ int \mbox{\hyperlink{solve__square_8cpp_ac3f9da76b6aacbff8bcc8c8ea3adf862}{Solve
 \item 
 int \mbox{\hyperlink{solve__square_8cpp_a067661247eb5deeece8db76cf47b8284}{Is\+Equal}} (double a, double b=0.\+0)
 \item 
-double $\ast$ \mbox{\hyperlink{solve__square_8cpp_a43407a424b50d5b14bc28387ff3015d4}{Get\+New\+Input}} (const char $\ast$prompt, size\+\_\+t N\+E\+L\+E\+MS)
+double $\ast$ \mbox{\hyperlink{solve__square_8cpp_a55d3c88a6257d96308fdc4c1c84130f0}{Get\+New\+Input}} (const size\+\_\+t N\+E\+L\+E\+MS, const char $\ast$prompt=nullptr)
 \item 
 int \mbox{\hyperlink{solve__square_8cpp_abed10ec6dc10518cf74ddc16cf5d1e80}{Scan\+Elem}} (double $\ast$f)
+\item 
+void \mbox{\hyperlink{solve__square_8cpp_ab9a7037299054f0b7be2b12500a93b92}{Unit\+Test}} (void)
 \item 
 int \mbox{\hyperlink{solve__square_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \end{DoxyCompactItemize}
@@ -26,16 +28,16 @@ int \mbox{\hyperlink{solve__square_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}
 \item 
 const int \mbox{\hyperlink{solve__square_8cpp_a6cbe918eff22ee462657bb9e47ea20f9}{S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS}} = -\/1
 \begin{DoxyCompactList}\small\item\em S\+S\+\_\+\+I\+N\+F\+\_\+\+N\+R\+O\+O\+TS -\/ value returned by \mbox{\hyperlink{solve__square_8cpp_ab936a40c3bd1cb2912df07f610d35eed}{Solve\+Square()}} if root is any number. \end{DoxyCompactList}\item 
-const double \mbox{\hyperlink{solve__square_8cpp_ad3ac0edea88fe8c592f4ca7d67d4eee3}{D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}} = 1e-\/10
+double \mbox{\hyperlink{solve__square_8cpp_a8bc2ff07f61ba16c018c02330353791d}{D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}} = 2.\+75e-\/17
 \begin{DoxyCompactList}\small\item\em D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE -\/ pressision of double comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{solve__square_8cpp_a43407a424b50d5b14bc28387ff3015d4}\label{solve__square_8cpp_a43407a424b50d5b14bc28387ff3015d4}} 
+\mbox{\Hypertarget{solve__square_8cpp_a55d3c88a6257d96308fdc4c1c84130f0}\label{solve__square_8cpp_a55d3c88a6257d96308fdc4c1c84130f0}} 
 \index{solve\_square.cpp@{solve\_square.cpp}!GetNewInput@{GetNewInput}}
 \index{GetNewInput@{GetNewInput}!solve\_square.cpp@{solve\_square.cpp}}
 \doxysubsubsection{\texorpdfstring{GetNewInput()}{GetNewInput()}}
-{\footnotesize\ttfamily double $\ast$ Get\+New\+Input (\begin{DoxyParamCaption}\item[{const char $\ast$}]{prompt,  }\item[{const size\+\_\+t}]{N\+E\+L\+E\+MS }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double $\ast$ Get\+New\+Input (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{N\+E\+L\+E\+MS,  }\item[{const char $\ast$}]{prompt = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
 Get\+New\+Input \begin{DoxyNote}{Note}
 function to read N\+E\+L\+E\+MS doubles from stdin 
@@ -143,14 +145,20 @@ function to solve square eqation
 number of roots ~\newline
  
 \end{DoxyReturn}
+\mbox{\Hypertarget{solve__square_8cpp_ab9a7037299054f0b7be2b12500a93b92}\label{solve__square_8cpp_ab9a7037299054f0b7be2b12500a93b92}} 
+\index{solve\_square.cpp@{solve\_square.cpp}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!solve\_square.cpp@{solve\_square.cpp}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily void Unit\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{solve__square_8cpp_ad3ac0edea88fe8c592f4ca7d67d4eee3}\label{solve__square_8cpp_ad3ac0edea88fe8c592f4ca7d67d4eee3}} 
+\mbox{\Hypertarget{solve__square_8cpp_a8bc2ff07f61ba16c018c02330353791d}\label{solve__square_8cpp_a8bc2ff07f61ba16c018c02330353791d}} 
 \index{solve\_square.cpp@{solve\_square.cpp}!D\_TOLERANCE@{D\_TOLERANCE}}
 \index{D\_TOLERANCE@{D\_TOLERANCE}!solve\_square.cpp@{solve\_square.cpp}}
 \doxysubsubsection{\texorpdfstring{D\_TOLERANCE}{D\_TOLERANCE}}
-{\footnotesize\ttfamily const double D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE = 1e-\/10}
+{\footnotesize\ttfamily double D\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE = 2.\+75e-\/17}
 
 
 
