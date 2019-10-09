@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio_ext.h>
 #include <ctype.h>
+#include <float.h>
 
 //! SS_INF_NROOTS - value returned by SolveSquare() if root is any number 
 const int SS_INF_NROOTS = -1;
@@ -19,6 +20,7 @@ int ScanElem(double *f);
 static inline double MaxD(double a, double b);
 void UnitTest(void);
 static inline int CmpTests(int res_t, double x1_t, double x2_t, int res, double x1, double x2);
+static inline void SetDTolerance(double a, double b, double c);
 
 int main()
 {
@@ -31,7 +33,7 @@ int main()
 
 	double x1 = NAN, x2 = NAN;
 	
-	D_TOLERANCE *= 10;//* log10(MaxD(coeffs[0], MaxD(coeffs[1], coeffs[2])));
+	SetDTolerance(coeffs[0], coeffs[1], coeffs[2]);
 
 	int nRoots = SolveSquare(coeffs[0], coeffs[1], coeffs[2], &x1, &x2);
 	switch (nRoots)
@@ -54,6 +56,18 @@ int main()
 	}
 	free(coeffs);
 	return 0;
+}
+
+static inline void SetDTolerance(double a, double b, double c)
+{
+	assert(isfinite(a));
+	assert(isfinite(b));
+	assert(isfinite(c));
+
+	D_TOLERANCE *= log(MaxD(fabs(a), MaxD(fabs(b), fabs(c))));
+	D_TOLERANCE = isfinite(D_TOLERANCE) && D_TOLERANCE > DBL_EPSILON ? D_TOLERANCE : DBL_EPSILON;
+	D_TOLERANCE *= 10;
+	return;
 }
 
 void UnitTest(void)
